@@ -14,11 +14,11 @@
   display: grid;
   gap: 24px;
 }
-.form__content .form__field1 {
+.form__content .form__fields {
   display: flex;
   gap: 12px;
 }
-.form__content .form__field1 .form__field {
+.form__content .form__fields .form__field {
   flex-basis: 50%;
 }
 .form__field {
@@ -33,12 +33,22 @@
   border: 1px solid #ddd;
   padding: 8px;
 }
-.form__button {
+.form__buttons {
+  display: flex;
+}
+.form__button, .form__button_red {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
   border: 1px solid #ddd;
   padding: 8px;
   border-radius: 5px;
   background-color: rgb(81, 81, 252);
   color: white;
+}
+.form__button_red {
+  background-color: red;
 }
 .form p {
   padding-top: 0;

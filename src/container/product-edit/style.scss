@@ -17,7 +17,7 @@
     display: grid;
     gap: s.space(6);
 
-    .form__field1 {
+    .form__fields {
       display: flex;
       gap: s.space(3);
 
@@ -42,12 +42,23 @@
     padding: s.space(2);
   }
 
-  &__button {
+  &__buttons {
+    display: flex;
+  }
+  &__button, &__button_red {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
     border: 1px solid s.color('light');
     padding: s.space(2);
     border-radius:5px;
     background-color: rgb(81, 81, 252);
     color: white;
+  }
+
+  &__button_red {
+    background-color: red;
   }
 
   p {
