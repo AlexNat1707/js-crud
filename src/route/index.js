@@ -66,21 +66,21 @@ class Product {
     const product = this.getById(id);
 
     if (product) {
-      product.data = data
+      product.name = data.name;
+      product.price = data.price;
+      product.description = data.description;
+      return true;
     }
+    return false;
   }
 
   static deleteById = (id) => {
-    const index = this.#list.findIndex(
-      (product) => product.id === id,
-    )
+    const productId = Number(id);
+    const initialLength = this.#list.length;
 
-    if (index !== -1) {
-      this.#list.splice(index, 1)
-      return true
-    } else {
-      return false
-    }
+    this.#list = this.#list.filter((product) => product.id !== productId);
+
+    return this.#list.length !== initialLength;
   }
 }
 
@@ -135,55 +135,63 @@ router.get('/product-edit', function (req, res) {
 
   const product = Product.getById(Number(id))
 
-  console.log(product)
-
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('product-edit', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'product-edit',
-    data: {
-      products: {
-        list: Product.getList(),
+  if (product) {
+    res.render('product-edit', {
+      style: 'product-edit',
+      data: {
+        products: {
+          list: Product.getList(),
+        },
+        product: product,
       }
-    }
-  })
-  // ↑↑ сюди вводимо JSON дані
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+      data: {
+        info: 'Товар з таким ID не знайдено',
+      }
+    })
+  }
 })
 
 // ================================================================
 
 router.post('/product-edit', function (req, res) {
-  const { data } = req.body
+  const { name, price, description, id } = req.body
 
-  const result = Product.updateById(data)
+  const result = Product.updateById(id, { name, price, description })
 
-  // res.render генерує нам HTML сторінку
-
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('product-edit', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'product-edit',
-    info: result ? "Продукт оновлено" : "Сталася помилка"
-  })
+  if (result) {
+    res.render('alert', {
+      style: 'alert',
+      data: {
+        info: 'Продукт оновлено',
+      }
+    })
+  } else {
+    res.render('alert', {
+      style: 'alert',
+      data: {
+        info: 'Сталася помилка: продукт не знайдено або оновлення неможливе.',
+      }
+    })
+  }
   // ↑↑ сюди вводимо JSON дані
 })
 
 // ================================================================
 
-// router.post('/product-create', function (req, res) {
-//   const { name, price, description } = req.body
+router.get('/product-delete', function (req, res) {
+  const { id } = req.query
 
-//   const product = new Product(name, price, description);
+  Product.deleteById(Number(id))
 
-//   Product.add(product)
-
-//   console.log(Product.getList())
-
-//   res.render('product-create', {
-//     style: 'product-create',
-//     info: "Продукт створений"
-//   })
-// })
+  res.render('alert', {
+    style: 'alert',
+    info: "Продукт видалений"
+  })
+})
 
 // ================================================================
 
