@@ -64,14 +64,22 @@ class Product {
 
   static updateById = (id, data) => {
     const product = this.getById(id);
+    const { name, price, description } = data;
 
     if (product) {
-      product.name = data.name;
-      product.price = data.price;
-      product.description = data.description;
-      return true;
+      if (name) {
+        product.name = name;
+      }
+      if (price) {
+        product.price = price;
+      }
+      if (description) {
+        product.description = description;
+      }
+      return true
+    } else {
+      return false
     }
-    return false;
   }
 
   static deleteById = (id) => {
@@ -136,21 +144,19 @@ router.get('/product-edit', function (req, res) {
   const product = Product.getById(Number(id))
 
   if (product) {
-    res.render('product-edit', {
+    return res.render('product-edit', {
       style: 'product-edit',
       data: {
-        products: {
-          list: Product.getList(),
-        },
-        product: product,
-      }
+        name: product.name,
+        price: product.price,
+        id: product.id,
+        description: product.description,
+      },
     })
   } else {
     res.render('alert', {
       style: 'alert',
-      data: {
-        info: 'Товар з таким ID не знайдено',
-      }
+      info: 'Товар з таким ID не знайдено',
     })
   }
 })
@@ -158,23 +164,22 @@ router.get('/product-edit', function (req, res) {
 // ================================================================
 
 router.post('/product-edit', function (req, res) {
-  const { name, price, description, id } = req.body
+  const { id, name, price, description } = req.body
 
-  const result = Product.updateById(id, { name, price, description })
+  const product = Product.updateById(id, { name, price, description })
 
-  if (result) {
+  console.log(id)
+  console.log(product)
+
+  if (product) {
     res.render('alert', {
       style: 'alert',
-      data: {
-        info: 'Продукт оновлено',
-      }
+      info: 'Інформацію про товар оновлено',
     })
   } else {
     res.render('alert', {
       style: 'alert',
-      data: {
-        info: 'Сталася помилка: продукт не знайдено або оновлення неможливе.',
-      }
+      info: 'Сталася помилка: продукт не знайдено або оновлення неможливе.',
     })
   }
   // ↑↑ сюди вводимо JSON дані
