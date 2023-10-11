@@ -28,6 +28,7 @@ h1 {
       border: 1px solid s.color("light");
       border-radius: 5px;
       box-shadow: 1px 2px 2px 2px grey;
+      max-width: 250px;
 
       .name {
         font-size: s.space(4);

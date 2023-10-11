@@ -3,6 +3,7 @@ const express = require('express')
 // Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
 
+
 // ================================================================
 
 // router.get Створює нам один ентпоїнт
@@ -15,28 +16,6 @@ router.get('/', function (req, res) {
   res.render('index', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'index',
-  })
-  // ↑↑ сюди вводимо JSON дані
-})
-
-// ================================================================
-
-router.get('/product-create', function (req, res) {
-  // res.render генерує нам HTML сторінку
-
-  const list = Product.getList()
-
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('product-create', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'product-create',
-
-    data: {
-      products: {
-        list: Product.getList(),
-        isEmpty: list.length === 0,
-      }
-    }
   })
   // ↑↑ сюди вводимо JSON дані
 })
@@ -92,6 +71,28 @@ class Product {
   }
 }
 
+router.get('/product-create', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  const list = Product.getList()
+
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('product-create', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'product-create',
+
+    data: {
+      products: {
+        list: Product.getList(),
+        isEmpty: list.length === 0,
+      }
+    }
+  })
+  // ↑↑ сюди вводимо JSON дані
+})
+
+// ================================================================
+
 router.post('/product-create', function (req, res) {
   const { name, price, description } = req.body
 
@@ -126,7 +127,7 @@ router.get('/product-list', function (req, res) {
 
     data: {
       products: {
-        list: Product.getList(),
+        list,
         isEmpty: list.length === 0,
       }
     }
@@ -166,7 +167,7 @@ router.get('/product-edit', function (req, res) {
 router.post('/product-edit', function (req, res) {
   const { id, name, price, description } = req.body
 
-  const product = Product.updateById(id, { name, price, description })
+  const product = Product.updateById(Number(id), { name, price, description })
 
   console.log(id)
   console.log(product)

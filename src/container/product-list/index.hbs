@@ -10,15 +10,7 @@
   <mark>Пустий</mark>
   {{else}}
   <ul class="form__content">
-    {{#each list}}
-    <div class="card">
-      <li class="name">{{name}}</li>
-      <li class="description">{{description}}</li>
-      <li class="id">ID: {{id}}</li>
-      <li class="price">{{price}}$ <button class="product__edit"><a class="button"
-            href="/product-edit?id={{id}}">Редагувати</a></button></li>
-    </div>
-    {{/each}}
+    {{> product-card}}
   </ul>
   {{/if}}
   {{/with}}
