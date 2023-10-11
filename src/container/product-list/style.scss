@@ -1,0 +1,52 @@
+@use '../../lib/service.scss' as s;
+
+body {
+  padding: s.space(3);
+}
+
+h1 {
+  font-size: s.space(6);
+  font-weight: bold;
+  color: rgb(56, 56, 255);
+  padding-bottom: s.space(2);
+}
+
+.form {
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: s.space(2);
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 100%;
+      gap: s.space(3);
+      padding: s.space(2);
+      border: 1px solid s.color("light");
+      border-radius: 5px;
+      box-shadow: 1px 2px 2px 2px grey;
+      max-width: 250px;
+
+      .name {
+        font-size: s.space(4);
+        font-weight: bold;
+      }
+
+      .id {
+        color: gray;
+      }
+      .price {
+        display: flex;
+        justify-content: space-between;
+
+        .button {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+

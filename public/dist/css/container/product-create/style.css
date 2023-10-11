@@ -1,0 +1,48 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+}
+.form__title {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+.form__content {
+  display: grid;
+  gap: 24px;
+}
+.form__content .form__field1 {
+  display: flex;
+  gap: 12px;
+}
+.form__content .form__field1 .form__field {
+  flex-basis: 50%;
+}
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form__label {
+  font-size: 14px;
+}
+.form__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.form__button {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: rgb(81, 81, 252);
+  color: white;
+}
+.form p {
+  padding-top: 0;
+  color: gray;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+}
+.form__area {
+  display: grid;
+  align-items: center;
+  gap: 12px;
+}
+.form__area h1 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.form a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  padding: 4px 56px;
+  background-color: rgb(81, 81, 255);
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

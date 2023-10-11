@@ -1,0 +1,29 @@
+@use '../../lib/service.scss' as s;
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  gap: s.space(3);
+  padding: s.space(3);
+
+  &__area {
+    display: grid;
+    align-items: center;
+    gap: s.space(3);
+
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid s.color("light");
+    padding: s.space(1) s.space(14);
+    background-color: rgb(81, 81, 255);
+    color: white;
+  }
+}
