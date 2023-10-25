@@ -238,7 +238,7 @@ router.post('/purchase-create', function (req, res) {
           price: productPrice,
         },
         {
-          text: "Доставка",
+          text: 'Доставка',
           price: Purchase.DELIVERY_PRICE,
         }
       ],
@@ -268,6 +268,12 @@ router.post('/purchase-submit', function (req, res) {
   } = req.body
 
   const product = Product.getById(id)
+
+  console.log('Product:', product);
+  console.log('Total Price:', totalPrice);
+  console.log('Product Price:', productPrice);
+  console.log('Delivery Price:', deliveryPrice);
+  console.log('Amount:', amount);
 
   if (!product) {
     return res.render('alert', {
@@ -330,7 +336,7 @@ router.post('/purchase-submit', function (req, res) {
     product,
   )
 
-  console.log(purchase)
+  console.log('Purchase:', purchase)
 
   res.render('alert', {
     style: 'alert',
@@ -342,6 +348,7 @@ router.post('/purchase-submit', function (req, res) {
     },
   })
 })
+
 // ================================================================
 
 // Підключаємо роутер до бек-енду
