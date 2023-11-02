@@ -12,33 +12,39 @@
       {{/each}}
     </ul>
 
-    {{>divider}}
-
     {{>heading title="Оформлення замовлення"}}
 
-    {{>field label="Ім'я" name="firsname"}}
+    <div class="user-data">
+      {{>field label="Ім'я" name="firstname"}}
 
-    {{>field label="Прізвище" name="lastname"}}
+      {{>field label="Прізвище" name="lastname"}}
 
-    {{>field label="Телефон" name="phone"}}
+      {{>field label="Мобільний телефон" name="phone"}}
 
-    {{>field label="Пошта" name="email"}}
+      {{>field label="Електронна пошта" name="email"}}
+    </div>
 
-    {{>field label="Коментар" name="comment"}}
+    <div class="comment">
+      {{>field label="Коментар" name="comment"}}
+      <span class="comment__subtitle">Коментар буде передано кур’єру</span>
+    </div>
 
-    {{>field label="Списати бонуси" name="bonus"}}
+    <div class="promo">
+      {{>field label="Списати бонуси" name="bonus"}}
 
-    {{>field label="Промо-код" name="promocode"}}
+      {{>field label="Промо-код" name="promocode"}}
+    </div>
 
     {{>divider}}
 
     {{>field value=totalPrice name="totalPrice" disabled=true}}
     {{>field value=productPrice name="productPrice" disabled=true}}
     {{>field value=deliveryPrice name="deliveryPrice" disabled=true}}
+    {{> field value=amount name='amount' disabled=true}}
 
 
     <strong class="form-cart__total">
-      Всього: {{totalPrice}} грн
+      Всього: {{totalPrice}} грн (+{{bonus}} грн на бонусний рахунок)
     </strong>
 
     {{>button text="Оформити замовлення"}}

@@ -1,0 +1,11 @@
+<main class="main">
+  {{> heading title="Мої замовлення"}}
+  {{#with data}}
+  {{#each list}}
+  <a href="/purchase-info?id={{id}}">
+    {{>purchase-item}}
+  </a>
+  {{>divider}}
+  {{/each}}
+  {{/with}}
+</main>

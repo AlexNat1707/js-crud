@@ -6,18 +6,20 @@
   <form method="POST" action="/purchase-create?id={{id}}">
     <div class="product-info">
       <img src="{{img}}" alt="{{title}}" class="product-info__image">
-      <h2 class="product-info__title">{{title}}</h2>
-      <p class="product-info__subtitle">{{description}}</p>
+      <div class="product-info__card">
+        <h2 class="product-info__title">{{title}}</h2>
+        <p class="product-info__subtitle">{{description}}</p>
 
-      {{>divider}}
+        {{>divider}}
 
-      {{#each category}}
-      <span class="product-info__category product-info__category--{{id}}">{{text}}</span>
-      {{/each}}
+        {{#each category}}
+        <span class="product-info__category product-info__category--{{id}}">{{text}}</span>
+        {{/each}}
 
-      {{>field label="Кількість" type="number" name="amount" value="1"}}
+        {{>field label="Кількість" type="number" name="amount" value="1"}}
 
-      {{>button text="Купити зараз" price=price}}
+        {{>button text="Купити зараз" price=price}}
+      </div>
     </div>
 
   </form>

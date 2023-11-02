@@ -71,16 +71,11 @@
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px 0px #ddd;
 }
 
 .cart {
   display: grid;
   gap: 8px;
-}
-
-.form-cart__total {
-  font-weight: 600;
 }
 
 .cart__item {
@@ -92,24 +87,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
-.promo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.comment {
+.button {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.comment__subtitle {
-  font-size: 12px;
-  color: grey;
-  padding-top: 0px;
+  justify-content: center;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,18 @@
+.purchase-item {
+  display: grid;
+  grid-template-columns: 10% 40% 22% 22%;
+  gap: 16px;
+}
+.purchase-item__block {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  color: black;
+}
+.purchase-item__block .title {
+  color: grey;
+}
+
+/*# sourceMappingURL=style.css.map */

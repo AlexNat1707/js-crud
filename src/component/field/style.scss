@@ -12,9 +12,9 @@
 }
 
 .field__input {
-  border: 1px solid s.color(light);
+  border: 1px solid s.color(border);
   padding: s.space(2);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .field--disabled {

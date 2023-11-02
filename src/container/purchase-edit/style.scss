@@ -20,16 +20,11 @@
   padding: s.space(5);
   border: 1px solid s.color(border);
   border-radius: 10px;
-  box-shadow: 5px 5px 10px 0px s.color(border);
 }
 
 .cart {
   display: grid;
   gap: s.space(2);
-}
-
-.form-cart__total {
-  font-weight: 600;
 }
 
 .cart__item {
@@ -41,22 +36,12 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: s.space(3);
+  padding-bottom: s.space(5);
+  padding-top: s.space(5);
 }
 
-.promo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: s.space(3);
-}
-
-.comment {
+.button {
   display: flex;
-  flex-direction: column;
-  gap: s.space(1);
-}
-
-.comment__subtitle {
-  font-size: 12px;
-  color: s.color(gray);
-  padding-top: 0px;;
+  justify-content: center;
+  text-decoration: none;
 }

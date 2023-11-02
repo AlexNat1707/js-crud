@@ -14,10 +14,16 @@
 }
 
 .product-info {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: s.space(4);
   align-items: flex-start;
+}
+
+.product-info__card {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(3);
 }
 
 .product-list {

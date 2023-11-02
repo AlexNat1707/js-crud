@@ -1,0 +1,21 @@
+@use '../../lib/service.scss' as s;
+
+.purchase-item {
+  display: grid;
+  grid-template-columns: 10% 40% 22% 22%;
+  gap: s.space(4);
+
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: flex-start;
+    gap: s.space(4);
+    color: black;
+
+    .title {
+      color: s.color(gray);
+    }
+  }
+}
